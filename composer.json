@@ -1,0 +1,17 @@
+{
+    "name": "mb-pro-home/bitwise-operators-in-action",
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "authors": [
+        {
+            "name": "Banjo Mofesola Paul",
+            "email": "mpdepaule1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}
