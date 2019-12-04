@@ -1,6 +1,7 @@
 <?php
 
 use App\Bitwise;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class BitwiseTest
@@ -9,7 +10,7 @@ use App\Bitwise;
  * Date: 2019-12-02
  * Time: 15:42
  */
-class BitwiseTest extends \PHPUnit\Framework\TestCase
+class BitwiseTest extends TestCase
 {
     /** @test */
     public final function bitwise_object_can_be_created_with_integer_value(): void
@@ -25,7 +26,6 @@ class BitwiseTest extends \PHPUnit\Framework\TestCase
         $bitwiseObject = Bitwise::createFromString("11");
         self::assertInstanceOf(Bitwise::class, $bitwiseObject);
         self::assertEquals("3", $bitwiseObject->getValueAsInteger());
-        self::assertEquals(2, $bitwiseObject + 4);
     }
 
     /**

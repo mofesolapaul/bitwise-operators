@@ -8,7 +8,6 @@
 
 namespace App;
 
-use PHPUnit\Framework\Error\Error;
 use PHPUnit\Util\Exception;
 
 /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Permission;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Created by Mofesola Banjo.
@@ -8,7 +9,7 @@ use App\Permission;
  * Date: 2019-12-02
  * Time: 17:27
  */
-class PermissionTest extends \PHPUnit\Framework\TestCase
+class PermissionTest extends TestCase
 {
     /**
      * @var Permission $permission
