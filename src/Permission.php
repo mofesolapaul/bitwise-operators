@@ -15,15 +15,19 @@ class Permission
     public const CREATE = 2;
     public const UPDATE = 7;
     public const DELETE = 8;
+
+    /**
+     * @var Bitwise $permission
+     */
     private $permission;
 
     /**
      * Permission constructor.
-     * @param int $defaultPermission
+     * @param int $defaultAccess
      */
-    public function __construct(int $defaultPermission = self::READ)
+    public function __construct(int $defaultAccess = self::READ)
     {
-        $this->permission = $defaultPermission;
+        $this->permission = Bitwise::createFromInteger($defaultAccess);
     }
 
     /**
@@ -32,7 +36,7 @@ class Permission
      */
     public final function grant(int $permission): Permission
     {
-        $this->permission |= $permission;
+        $this->permission->or($permission);
         return $this;
     }
 
@@ -42,7 +46,7 @@ class Permission
      */
     public final function check(int $permission): bool
     {
-        return $permission === ($this->permission & $permission);
+        return $permission === $this->permission->and($permission, false);
     }
 
     /**
@@ -51,12 +55,12 @@ class Permission
      */
     public final function revoke(int $permission): Permission
     {
-        $this->permission ^= $permission;
+        $this->permission->xor($permission);
         return $this;
     }
 
     public final function showPermissionInBinary(): void
     {
-        echo decbin($this->permission);
+        echo $this->permission->getValue();
     }
 }
